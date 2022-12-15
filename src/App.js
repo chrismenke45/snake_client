@@ -13,6 +13,26 @@ import {
 
 
 function App() {
+  //below is to ping api to start up server
+  useEffect(() => {
+    let url = (process.env.REACT_APP_PROD_API_URL || process.env.REACT_APP_DEV_API_URL) + '/records';
+    const options = {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+        }
+    };
+    fetch(url, options)
+        .then((response) => response.json())
+        .then(scores => {
+            console.log("pinged API for startup")
+        })
+        .catch(error => {
+            console.error('Error:', error)
+        })   
+}, [])
+//above is to ping api to start up server
 
 
   const phoneKeys = [];
