@@ -1,0 +1,1 @@
+I've just always thought the classic snake game was fun and I'd like to make it when I'm burnt out of learning new topics. 
