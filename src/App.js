@@ -5,7 +5,7 @@ import ScoreDisplay from './components/ScoreDisplay';
 import Error from './components/Error';
 
 import {
-  //BrowserRouter as Router,
+  //BrowserRouter as Router, - no
   HashRouter as Router,
   Routes,
   Route,
