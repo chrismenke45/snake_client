@@ -42,6 +42,30 @@ main {
   flex-grow: 1;
   font-size: 4rem;
 }
+#mobileNotice {
+  display: none;
+}
+#instructionNotice {
+  background: white;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 300px;
+  border-radius: 10px;
+  font-size: 2.5rem;
+  text-align: center;
+  left: calc(50% - 150px);
+  z-index: 2;
+  animation: notice 5s linear;
+}
+@keyframes notice {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .backBtn {
   text-decoration: none;
   font-size: 3rem;
@@ -101,10 +125,7 @@ li {
   0% {
     opacity: 0;
   }
-  60% {
-    opacity: 1;
-  }
-  100% {
+  60%, 100% {
     opacity: 1;
   }
 }
@@ -115,10 +136,7 @@ li {
   0% {
     opacity: 0;
   }
-  90% {
-    opacity: 1;
-  }
-  100% {
+  90%, 100% {
     opacity: 1;
   }
 }
@@ -136,10 +154,12 @@ li {
 }
 #board > .hasSnake {
   background: rgb(84, 84, 84);
+  z-index: 1;
 }
 #board > .hasDeadSnake {
   background: rgb(181, 59, 59);
-  animation: deadFlash 1.5s linear infinite
+  animation: deadFlash 1.5s linear infinite;
+  z-index: 1;
 }
 @keyframes deadFlash {
   0% {
@@ -157,6 +177,10 @@ li {
 }
 #board > .hasApple {
   background: green;
+  z-index: 1;
+}
+#scoreFrom {
+  z-index: 2;
 }
 .popupForm {
   background: black;
@@ -171,6 +195,7 @@ li {
   text-align: center;
   color: green;
   border-radius: 5px;
+  z-index: 2;
 
 }
 .popupForm * {
@@ -254,4 +279,17 @@ input[type="submit"], button {
 }
 #phoneKeys div:nth-child(3n+3) {
   border-radius: 15px 10px;
+}
+@media screen and (max-width:650px) {
+  #mobileNotice {
+    display: block;
+    background: red;
+    position: absolute;
+    top: 0;
+    width: 300px;
+    font-size: 2.5rem;
+    text-align: center;
+    left: calc(50% - 150px);
+    z-index: 2;
+  }
 }

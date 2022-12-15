@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Game from './components/Game';
 import ScoreDisplay from './components/ScoreDisplay';
@@ -44,6 +44,8 @@ function App() {
   phoneKeys.push(<div key="pk12">#</div>)
   return (
     <div id="phone">
+            <div id="mobileNotice">Sorry, this app is not made to be run on mobile :{"("} Please try opening it on a computer's browser</div>
+            <div id="instructionNotice">Use your arrow keys to control the snake and spacebar to pause!</div>
       <h1>Nokia Snake</h1>
       <Router>
         <Routes>
