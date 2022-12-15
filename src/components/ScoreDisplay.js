@@ -19,7 +19,6 @@ function ScoreDisplay(props) {
             .then((response) => response.json())
             .then(scores => {
                 setScores(scores)
-                console.log(scores)
             })
             .catch(error => {
                 console.error('Error:', error)

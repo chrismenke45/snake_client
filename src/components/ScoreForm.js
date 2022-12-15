@@ -30,16 +30,13 @@ function ScoreForm(props) {
                 mode: 'cors',
                 body: data,
                 headers: {
-                    //'Content-Type': 'multipart/form-data',
                     'Accept': 'application/json',
                 }
             };
-            //delete options.headers['Content-Type'];
             fetch(url, options)
                 .then((response) => response.json())
                 .then(record => {
                     setName("")
-                    console.log(record)
                     navigate('/scores')
                     
                 })
