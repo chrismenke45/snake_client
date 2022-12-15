@@ -1,4 +1,4 @@
-import React, { useEffect, useState, /*useRef*/ } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import board from '../factoryFunctions/board'
 import snake from '../factoryFunctions/snake'
@@ -12,7 +12,6 @@ function Game() {
     const [theSnake, setTheSnake] = useState(snake(boardSize))
     const [theBoard, setTheBoard] = useState(board(boardSize))
     const [savedScoreCount, setSavedScoreCount] = useState(0)
-    //const gameStart = useRef(true);
 
     const directionChange = (e) => {
         setTheSnake(prevSnake => {
@@ -38,19 +37,6 @@ function Game() {
                     }
                     return { ...prevBoard }
                 })
-                // if (prevSnake.dead) {
-                //     clearInterval(timer)
-                // } else if (theBoard.spaces[nextSpot[0]] && theBoard.spaces[nextSpot[0]][nextSpot[1]] && theBoard.spaces[nextSpot[0]][nextSpot[1]].hasApple) {
-                //     setTheBoard(prevBoard => {
-                //         prevBoard.clearApple()
-                //         return { ...prevBoard }
-                //     })
-                //     prevSnake.takeNextSpot()
-
-
-                // } else {
-                //     prevSnake.move()
-                // }
                 if (prevSnake.dead) {
                     clearInterval(timer)
                 } else if (theBoard.spaces[nextSpot[0]] && theBoard.spaces[nextSpot[0]][nextSpot[1]] && theBoard.spaces[nextSpot[0]][nextSpot[1]].hasApple) {
@@ -79,13 +65,6 @@ function Game() {
         }, incrementTime);
         return () => clearInterval(timer);
     }, [savedScoreCount]);
-
-    // useEffect(() => {
-    //     setTheBoard(prevBoard => {
-    //         prevBoard.snakeOnBoard(theSnake)
-    //         return { ...prevBoard }
-    //     })
-    // }, [theSnake]);
 
     return (
         <main id="board">

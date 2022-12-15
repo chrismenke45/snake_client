@@ -25,15 +25,6 @@ function App() {
   return (
     <div id="phone">
       <h1>Nokia Snake</h1>
-      {/*
-  <main id="scores">
-        <ul>
-          <li></li>
-        </ul>
-      </main>
-     
-      <ScoreDisplay />
-  */}
       <Router>
         <Routes>
           <Route
