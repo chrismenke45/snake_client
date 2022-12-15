@@ -1,1 +1,1 @@
-I've just always thought the classic snake game was fun and I'd like to make it when I'm burnt out of learning new topics. 
+I've just always thought the classic snake game was fun and I'd like to make it when I'm burnt out of learning new topics. Its backend rails API's repository can be seen at https://github.com/chrismenke45/snake_api The app can be seen at https://chrismenke45.github.io/snake_client/
