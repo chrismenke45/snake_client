@@ -31,12 +31,12 @@ function Game() {
             setTheSnake((prevSnake) => {
                 let currentHead = prevSnake.spots[0]
                 let nextSpot = [currentHead[0] + prevSnake.direction[0], currentHead[1] + prevSnake.direction[1]]
-                setTheBoard(prevBoard => {
-                    if (!prevBoard.applePlaced()) {
-                        prevBoard.appleOnBoard()
-                    }
-                    return { ...prevBoard }
-                })
+                // setTheBoard(prevBoard => {
+                //     if (!prevBoard.applePlaced()) {
+                //         prevBoard.appleOnBoard()
+                //     }
+                //     return { ...prevBoard }
+                // })
                 if (prevSnake.dead) {
                     clearInterval(timer)
                 } else if (theBoard.spaces[nextSpot[0]] && theBoard.spaces[nextSpot[0]][nextSpot[1]] && theBoard.spaces[nextSpot[0]][nextSpot[1]].hasApple) {
@@ -45,6 +45,9 @@ function Game() {
                     setTheBoard(prevBoard => {
                         prevBoard.clearApple()
                         prevBoard.snakeOnBoard(prevSnake)
+                        if (!prevBoard.applePlaced()) {
+                            prevBoard.appleOnBoard()
+                        }
                         return { ...prevBoard }
                     })
 
@@ -53,6 +56,9 @@ function Game() {
                     prevSnake.move()
                     setTheBoard(prevBoard => {
                         prevBoard.snakeOnBoard(prevSnake)
+                        if (!prevBoard.applePlaced()) {
+                            prevBoard.appleOnBoard()
+                        }
                         return { ...prevBoard }
                     })
 
