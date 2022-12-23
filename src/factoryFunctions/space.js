@@ -1,4 +1,4 @@
-function space(row, column) {
+function Space(row, column) {
     return {
       row: row,
       column: column,
@@ -12,4 +12,4 @@ function space(row, column) {
       }
     };
   }
-export default space;
+export default Space;

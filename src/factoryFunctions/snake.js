@@ -1,6 +1,6 @@
 import arrayWithinArray from "../functions/arrayWithinArray";
 
-function snake(boardSize) {
+function Snake(boardSize) {
   let midBoard = Math.floor(boardSize / 2) - 1
   return {
     boardSize: boardSize,
@@ -55,4 +55,4 @@ function snake(boardSize) {
     }
   };
 }
-export default snake;
+export default Snake;

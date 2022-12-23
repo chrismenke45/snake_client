@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import board from '../factoryFunctions/board'
-import snake from '../factoryFunctions/snake'
+import Board from '../factoryFunctions/Board'
+import Snake from '../factoryFunctions/Snake'
 
 import ScoreForm from './ScoreForm';
 
@@ -9,8 +9,8 @@ import ScoreForm from './ScoreForm';
 function Game() {
     const incrementTime = 150;
     const boardSize = 15
-    const [theSnake, setTheSnake] = useState(snake(boardSize))
-    const [theBoard, setTheBoard] = useState(board(boardSize))
+    const [theSnake, setTheSnake] = useState(new Snake(boardSize))
+    const [theBoard, setTheBoard] = useState(new Board(boardSize))
     const [savedScoreCount, setSavedScoreCount] = useState(0)
 
     const directionChange = (e) => {
@@ -26,7 +26,7 @@ function Game() {
     }, [])
 
     useEffect(() => {
-        setTheSnake(snake(boardSize))
+        setTheSnake(new Snake(boardSize))
         const timer = setInterval(() => {
             setTheSnake((prevSnake) => {
                 let currentHead = prevSnake.spots[0]

@@ -1,12 +1,12 @@
-import space from "./space";
+import Space from "./Space";
 import arrayWithinArray from "../functions/arrayWithinArray";
 
-function board(boardSize) {
+function Board(boardSize) {
   let spaces = []
   for (var i = 0; i < boardSize; i++) {
     let row = []
     for (var j = 0; j < boardSize; j++) {
-      row.push(space(i, j))
+      row.push(new Space(i, j))
     }
     spaces.push(row)
   }
@@ -61,4 +61,4 @@ function board(boardSize) {
     }
   };
 }
-export default board;
+export default Board;
