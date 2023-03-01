@@ -38,10 +38,11 @@ function ScoreForm(props) {
                 .then(record => {
                     setName("")
                     navigate('/scores')
-                    
                 })
                 .catch(error => {
                     console.error('Error:', error)
+                    console.log("yee")
+                    setSavedScoreCount(prev => prev + 1)
                 })
         }
     }
