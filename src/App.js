@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-
+import React, { useEffect, useRef } from 'react';
 import Game from './components/Game';
 import ScoreDisplay from './components/ScoreDisplay';
 import Error from './components/Error';
+import audio from "./buttonSound.mp3"
 
 import {
   //BrowserRouter as Router, - no
@@ -13,39 +13,43 @@ import {
 
 
 function App() {
-  
+
   //below is to ping api to start up server
   useEffect(() => {
     let url = (process.env.REACT_APP_PROD_API_URL || process.env.REACT_APP_DEV_API_URL) + '/records';
     const options = {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-            'Accept': 'application/json',
-        }
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+      }
     };
     fetch(url, options)
-        .then((response) => response.json())
-        .then(scores => {
-            console.log("pinged API for startup")
-        })
-        .catch(error => {
-            console.error('Error:', error)
-        })   
-}, [])
-//above is to ping api to start up server
+      .then((response) => response.json())
+      .then(scores => {
+        console.log("pinged API for startup")
+      })
+      .catch(error => {
+        console.error('Error:', error)
+      })
+  }, [])
+  //above is to ping api to start up server
+
+  const playPhoneKeyNoise = () => {
+    new Audio(audio).play()
+  }
 
   const phoneKeys = [];
   for (let i = 1; i < 10; i++) {
-    phoneKeys.push(<div key={`pk${i}`}>{i}</div>);
+    phoneKeys.push(<div onClick={playPhoneKeyNoise} key={`pk${i}`}>{i}</div>);
   }
-  phoneKeys.push(<div key="pk10">*</div>)
-  phoneKeys.push(<div key="pk11">0</div>)
-  phoneKeys.push(<div key="pk12">#</div>)
+  phoneKeys.push(<div onClick={playPhoneKeyNoise} key="pk10">*</div>)
+  phoneKeys.push(<div onClick={playPhoneKeyNoise} key="pk11">0</div>)
+  phoneKeys.push(<div onClick={playPhoneKeyNoise} key="pk12">#</div>)
   return (
     <div id="phone">
-            <div id="mobileNotice">Sorry, this app is not made to be run on mobile :{"("} Please try opening it on a computer's browser</div>
-            <div id="instructionNotice">Use your arrow keys to control the snake and spacebar to pause!</div>
+      <div id="mobileNotice">Sorry, this app is not made to be run on mobile :{"("} Please try opening it on a computer's browser</div>
+      <div id="instructionNotice">Use your arrow keys to control the snake and spacebar to pause!</div>
       <h1>Nokia Snake</h1>
       <Router>
         <Routes>
