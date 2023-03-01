@@ -12,6 +12,7 @@ function Game() {
     const [theSnake, setTheSnake] = useState(new Snake(boardSize))
     const [theBoard, setTheBoard] = useState(new Board(boardSize))
     const [savedScoreCount, setSavedScoreCount] = useState(0)
+    const [startNewGame, setStartNewGame] = useState(0)
 
     const directionChange = (e) => {
         setTheSnake(prevSnake => {
@@ -27,6 +28,10 @@ function Game() {
 
     useEffect(() => {
         setTheSnake(new Snake(boardSize))
+        setStartNewGame(prev => prev + 1)
+    }, [savedScoreCount]);
+
+    useEffect(() => {
         const timer = setInterval(() => {
             setTheSnake((prevSnake) => {
                 let currentHead = prevSnake.spots[0]
@@ -57,14 +62,11 @@ function Game() {
                     })
 
                 }
-
-
-
                 return { ...prevSnake }
             })
         }, incrementTime);
         return () => clearInterval(timer);
-    }, [savedScoreCount]);
+    }, [startNewGame])
 
     return (
         <main id="board">
