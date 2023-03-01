@@ -13,6 +13,7 @@ import {
 
 
 function App() {
+  
   //below is to ping api to start up server
   useEffect(() => {
     let url = (process.env.REACT_APP_PROD_API_URL || process.env.REACT_APP_DEV_API_URL) + '/records';
@@ -34,7 +35,6 @@ function App() {
 }, [])
 //above is to ping api to start up server
 
-
   const phoneKeys = [];
   for (let i = 1; i < 10; i++) {
     phoneKeys.push(<div key={`pk${i}`}>{i}</div>);
@@ -52,7 +52,6 @@ function App() {
           <Route
             exact path='/'
             element={<Game />}>
-
           </Route>
           <Route
             exact path='/scores'
@@ -68,7 +67,6 @@ function App() {
 
       <div id='semiCircleBox'>
         <div id="underScreenSemiCircle"></div>
-
       </div>
       <div id="phoneKeys">
         {phoneKeys}
