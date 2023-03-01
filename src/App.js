@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Game from './components/Game';
 import ScoreDisplay from './components/ScoreDisplay';
 import Error from './components/Error';
