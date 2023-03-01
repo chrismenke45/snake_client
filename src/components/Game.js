@@ -33,15 +33,12 @@ function Game() {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            console.log(1, theSnake)
             setTheSnake((prevSnake) => {
-                console.log(2, prevSnake)
                 let currentHead = prevSnake.spots[0]
                 let nextSpot = [currentHead[0] + prevSnake.direction[0], currentHead[1] + prevSnake.direction[1]]
                 if (prevSnake.dead) {
                     clearInterval(timer)
                 } else if (theBoard.spaces[nextSpot[0]] && theBoard.spaces[nextSpot[0]][nextSpot[1]] && theBoard.spaces[nextSpot[0]][nextSpot[1]].hasApple) {
-
                     prevSnake.takeNextSpot()
                     setTheBoard(prevBoard => {
                         prevBoard.clearApple()
@@ -49,10 +46,8 @@ function Game() {
                         if (!prevBoard.applePlaced()) {
                             prevBoard.appleOnBoard()
                         }
-                        return { ...prevBoard }
+                        return new Board(boardSize, { ...prevBoard })
                     })
-
-
                 } else {
                     prevSnake.move()
                     setTheBoard(prevBoard => {
@@ -60,12 +55,9 @@ function Game() {
                         if (!prevBoard.applePlaced()) {
                             prevBoard.appleOnBoard()
                         }
-                        return { ...prevBoard }
+                        return new Board(boardSize, { ...prevBoard })
                     })
-
                 }
-                let newSnake = { ...prevSnake };
-                //return { ...prevSnake }
                 return new Snake(boardSize, { ...prevSnake })
             })
         }, incrementTime);
