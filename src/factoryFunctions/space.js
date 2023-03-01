@@ -1,15 +1,17 @@
-function Space(row, column) {
-    return {
-      row: row,
-      column: column,
-      hasSnake: false,
-      hasApple: false,
-      getSnake() {
-        this.hasSnake = true;
-      },
-      removeSnake() {
-        this.hasSnake = false;
-      }
-    };
+class Space {
+  constructor(row, column) {
+    this.row = row
+    this.column = column
+    this.hasSnake = false
+    this.hasApple = false
   }
+  getSnake() {
+    this.hasSnake = true;
+  }
+  removeSnake() {
+    this.hasSnake = false;
+  }
+}
+
 export default Space;
+
