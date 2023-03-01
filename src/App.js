@@ -59,10 +59,6 @@ function App() {
             element={<ScoreDisplay />}>
           </Route>
           <Route
-            exact path='/scores'
-            element={<ScoreDisplay />}>
-          </Route>
-          <Route
             path='/*'
             element={<Error />}>
           </Route>
