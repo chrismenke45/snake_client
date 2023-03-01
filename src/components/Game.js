@@ -17,7 +17,7 @@ function Game() {
     const directionChange = (e) => {
         setTheSnake(prevSnake => {
             prevSnake.keyboardCodetoDirection(e.code)
-            return { ...prevSnake }
+            return new Snake(boardSize, { ...prevSnake })
         })
     }
 
@@ -33,7 +33,9 @@ function Game() {
 
     useEffect(() => {
         const timer = setInterval(() => {
+            console.log(1, theSnake)
             setTheSnake((prevSnake) => {
+                console.log(2, prevSnake)
                 let currentHead = prevSnake.spots[0]
                 let nextSpot = [currentHead[0] + prevSnake.direction[0], currentHead[1] + prevSnake.direction[1]]
                 if (prevSnake.dead) {
@@ -62,7 +64,9 @@ function Game() {
                     })
 
                 }
-                return { ...prevSnake }
+                let newSnake = { ...prevSnake };
+                //return { ...prevSnake }
+                return new Snake(boardSize, { ...prevSnake })
             })
         }, incrementTime);
         return () => clearInterval(timer);
