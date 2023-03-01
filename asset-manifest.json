@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/snake_client/static/css/main.b4f0cab1.css",
-    "main.js": "/snake_client/static/js/main.c2396ceb.js",
+    "main.js": "/snake_client/static/js/main.ec77fc1d.js",
+    "static/media/buttonSound.mp3": "/snake_client/static/media/buttonSound.c99b1be1e7e71eb06b82.mp3",
     "index.html": "/snake_client/index.html",
     "main.b4f0cab1.css.map": "/snake_client/static/css/main.b4f0cab1.css.map",
-    "main.c2396ceb.js.map": "/snake_client/static/js/main.c2396ceb.js.map"
+    "main.ec77fc1d.js.map": "/snake_client/static/js/main.ec77fc1d.js.map"
   },
   "entrypoints": [
     "static/css/main.b4f0cab1.css",
-    "static/js/main.c2396ceb.js"
+    "static/js/main.ec77fc1d.js"
   ]
 }
